@@ -1,11 +1,8 @@
-- name: Disable systemdBoot
+- name: Disable systemdBoot on Fedora 34
   # Has to be disabled to make the KDEWM config work
   # https://bugzilla.redhat.com/show_bug.cgi?id=1939291
   become: true
-  lineinfile:
-    path: /etc/xdg/startkderc
-    regexp: '^systemdBoot='
-    line: 'systemdBoot=false'
+  command: kwriteconfig5 --file /etc/xdg/startkderc --group General --key systemdBoot false
   when:
     - ansible_distribution == 'Fedora'
     - ansible_distribution_major_version | int >= 34
@@ -18,7 +15,4 @@
 
 - name: Swap Caps Lock and Escape keys
   become_user: mag
-  lineinfile:
-    path: ~/.config/kxkbrc
-    regexp: "^Options="
-    line: "Options=caps:swapescape"
+  command: kwriteconfig5 --file ~/.config/kxkbrc --group Layout --key Options caps:swapescape
