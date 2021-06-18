@@ -12,7 +12,8 @@
       when: ansible_distribution == 'Fedora'
     - name: arch_linux
       when: ansible_distribution == 'Arch Linux'
-#    - users
     - name: kde
       when: ansible_env['XDG_CURRENT_DESKTOP'] == 'KDE'
     - bash
+    - jetbrains-toolbox
+#    - users

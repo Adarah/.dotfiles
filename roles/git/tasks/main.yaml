@@ -1,0 +1,7 @@
+- name: Symlink .gitconfig
+  become_user: mag
+  file:
+    src: "{{ role_path }}/files/.gitconfig"
+    dest: ~/.gitconfig
+    state: link
+

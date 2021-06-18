@@ -56,11 +56,6 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 ########################################
-# Jetbrains toolbox
-########################################
-export PATH="$PATH:/opt/jetbrains-toolbox"
-
-########################################
 # GPG Agent
 # sources: https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 ########################################

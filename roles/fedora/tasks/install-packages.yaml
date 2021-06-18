@@ -1,0 +1,36 @@
+- name: Install dnf packages
+  become: true
+  dnf:
+    state: latest
+    name:
+      - ansible
+      - bat
+      - bash
+      - discord
+      - exa
+      - fish
+      - git
+      - google-cloud-sdk
+      - gpg
+      - jq
+      - kitty
+      - kubectl
+      - neovim
+      - podman-docker
+      - ripgrep
+      - tealdeer
+      - terraform
+
+- name: Install Flatpak packages
+  community.general.flatpak:
+    name: com.spotify.Client
+    state: present
+
+- name: Install .rpm packages
+  become: true
+  dnf:
+    name:
+      - https://github.com/lensapp/lens/releases/download/v4.2.4/Lens-4.2.4.x86_64.rpm    # Lens
+      - https://downloads.slack-edge.com/linux_releases/slack-4.17.0-0.1.fc21.x86_64.rpm  # Slack
+    state: present
+    disable_gpg_check: true

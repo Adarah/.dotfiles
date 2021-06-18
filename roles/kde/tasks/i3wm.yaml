@@ -1,0 +1,14 @@
+- name: Disable systemdBoot on Fedora 34
+  # Has to be disabled to make the KDEWM config work
+  # https://bugzilla.redhat.com/show_bug.cgi?id=1939291
+  become: true
+  command: kwriteconfig5 --file /etc/xdg/startkderc --group General --key systemdBoot false
+  when:
+    - ansible_distribution == 'Fedora'
+    - ansible_distribution_major_version | int >= 34
+
+- name: Add Plasma-i3 XSession
+  become: true
+  copy:
+    src: plasma-i3.desktop
+    dest: /usr/share/xsessions
