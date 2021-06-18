@@ -1,0 +1,12 @@
+- name: Create mag group
+  group:
+    name: mag
+    state: present
+
+- name: Create mag user
+  user:
+    name: mag
+    password: "{{ user_password }}"
+    group: mag
+    state: present
+    shell: /bin/bash

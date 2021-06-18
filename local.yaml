@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+#  vars_prompt:
+#    - name: "user_password"
+#      prompt: Enter a password for the user
+#      private: true
+#      encrypt: sha512_crypt
+#      confirm: yes
+  roles:
+    - name: fedora
+      when: ansible_distribution == 'Fedora'
+    - name: arch_linux
+      when: ansible_distribution == 'Arch Linux'
+#    - users
+    - name: kde
+      when: ansible_env['XDG_CURRENT_DESKTOP'] == 'KDE'
+    - bash
