@@ -1,2 +1,3 @@
 - import_tasks: i3wm.yaml
 - import_tasks: keybindings.yaml
+- import_tasks: kde-settings.yaml

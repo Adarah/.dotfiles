@@ -8,12 +8,22 @@
 #      encrypt: sha512_crypt
 #      confirm: yes
   roles:
-    - name: fedora
-      when: ansible_distribution == 'Fedora'
-    - name: arch_linux
-      when: ansible_distribution == 'Arch Linux'
-    - name: kde
-      when: ansible_env['XDG_CURRENT_DESKTOP'] == 'KDE'
-    - bash
-    - jetbrains-toolbox
+    - fish
+    - kitty
+#    - rust
+#    - python
+#    - name: fedora
+#      when: ansible_distribution == 'Fedora'
+#    - snap
+#    - flatpak
+#    - git
+#    - gnupg
+#    - i3wm
+#    - doas
+#    - name: arch-linux
+#      when: ansible_distribution == 'Arch Linux'
+#    - name: kde
+#      when: ansible_env['XDG_CURRENT_DESKTOP'] == 'KDE'
+#    - bash
+#    - jetbrains-toolbox
 #    - users

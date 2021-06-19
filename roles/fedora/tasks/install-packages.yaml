@@ -4,33 +4,31 @@
     state: latest
     name:
       - ansible
-      - bat
       - bash
+      - bat
+      - bottom
       - discord
+      - doas
       - exa
+      - fd-find
+      - feh
       - fish
+      - fzf
       - git
+      - git-delta
       - google-cloud-sdk
       - gpg
+      - httpie
+      - hyperfine
+      - i3-gaps
       - jq
       - kitty
       - kubectl
       - neovim
       - podman-docker
+      - procs
       - ripgrep
+      - snapd
       - tealdeer
       - terraform
-
-- name: Install Flatpak packages
-  community.general.flatpak:
-    name: com.spotify.Client
-    state: present
-
-- name: Install .rpm packages
-  become: true
-  dnf:
-    name:
-      - https://github.com/lensapp/lens/releases/download/v4.2.4/Lens-4.2.4.x86_64.rpm    # Lens
-      - https://downloads.slack-edge.com/linux_releases/slack-4.17.0-0.1.fc21.x86_64.rpm  # Slack
-    state: present
-    disable_gpg_check: true
+      - zoxide

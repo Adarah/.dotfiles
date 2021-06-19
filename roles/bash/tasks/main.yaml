@@ -4,4 +4,5 @@
     src: "{{ role_path }}/files/.bashrc"
     dest: ~/.bashrc
     state: link
+    force: true
 

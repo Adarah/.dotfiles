@@ -34,7 +34,7 @@ export EDITOR=$(which nvim)
 ########################################
 # My aliases
 ########################################
-alias sudo='sudo '
+alias sudo='echo Use doas instead'
 alias vi='nvim'
 alias gb='git branch'
 alias gs='git status'
@@ -46,20 +46,40 @@ alias gpf='git push --force-with-lease --force-if-includes'
 alias gl='git log'
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
+
+########################################
+# zoxide
+# sources: https://github.com/ajeetdsouza/zoxide#bash
+########################################
+eval "$(zoxide init bash)"
+
 ########################################
 # Pyenv
 # source: https://github.com/pyenv/pyenv
 ########################################
 # setting to setup shims
 eval "$(pyenv init -)"
-# setting to load virtualenvs automatically
-eval "$(pyenv virtualenv-init -)"
+
+########################################
+# Poetry
+# source: https://python-poetry.org/docs/#installation
+########################################
+export PATH="$PATH:~/.poetry/bin"
+
 
 ########################################
 # GPG Agent
-# sources: https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
+# sources:
+# - https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
+# - https://gist.github.com/mcattarinussi/834fc4b641ff4572018d0c665e5a94d3
 ########################################
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
+
+
+########################################
+# Broot
+########################################
+source /home/mag/.config/broot/launcher/bash/br

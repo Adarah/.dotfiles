@@ -7,3 +7,5 @@
       # So I can use this keybinding inside Jetbrains IDEs
     - name: Remove Ctrl+Alt+L Screen Lock keybinding
       command: kwriteconfig5 --file ~/.config/kglobalshortcutsrc --group ksmserver --key 'Lock Session' 'Screensaver\tMeta+L,Meta+L\tCtrl+Alt+L\tScreensaver,Lock Session'
+
+

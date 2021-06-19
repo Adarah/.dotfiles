@@ -1,0 +1,24 @@
+- name: Install pyenv
+  become_user: mag
+  shell:
+    cmd: curl https://pyenv.run | bash
+    creates: ~/.pyenv/bin/pyenv
+
+- name: Install poetry
+  become_user: mag
+  shell:
+    cmd: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+    creates: ~/.poetry/bin/poetry
+
+- name: Add poetry bash completions
+  become: true
+  file:
+    src: "{{ role_path }}/files/poetry.bash-completion"
+    dest: /etc/bash_completion.d/poetry.bash-completoin
+    state: link
+
+- name: Add poetry fish completions
+  file:
+    src: "{{ role_path }}/files/poetry.bash-completion"
+    dest: ~/.config/fish/completions/poetry.fish
+    state: link

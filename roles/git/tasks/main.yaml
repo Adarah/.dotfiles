@@ -4,4 +4,5 @@
     src: "{{ role_path }}/files/.gitconfig"
     dest: ~/.gitconfig
     state: link
+    force: yes
 

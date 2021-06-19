@@ -1,0 +1,9 @@
+- name: Symlink i3 config
+  become_user: mag
+  file:
+    src: "{{ role_path }}/files/config"
+    dest: ~/.config/i3/config
+    state: link
+    force: true
+  notify:
+    - Reload i3
