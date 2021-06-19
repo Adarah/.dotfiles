@@ -8,12 +8,10 @@
 #      encrypt: sha512_crypt
 #      confirm: yes
   roles:
-    - fish
-    - kitty
+    - neofetch
+#    - fish
 #    - kitty
 #    - nodejs
-#    - nodejs
-#    - neofetch
 #    - rust
 #    - python
 #    - name: fedora

@@ -16,7 +16,7 @@ alias gca 'git commit -S --amend'
 alias gp 'git push'
 alias gpf 'git push --force-with-lease --force-if-includes'
 alias gl 'git log'
-
+alias icat="kitty +kitten icat"
 
 ########################################
 # My alternative commands to break muscle memory
