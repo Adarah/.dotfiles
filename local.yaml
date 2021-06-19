@@ -10,6 +10,10 @@
   roles:
     - fish
     - kitty
+#    - kitty
+#    - nodejs
+#    - nodejs
+#    - neofetch
 #    - rust
 #    - python
 #    - name: fedora

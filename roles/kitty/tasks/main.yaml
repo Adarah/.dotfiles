@@ -8,7 +8,7 @@
 - name: Set kitty color theme
   become_user: mag
   file:
-    src: ~/.config/kitty/kitty-themes/themes/Galaxy.conf
+    src: ~/.config/kitty/kitty-themes/themes/Monokai_Pro.conf
     dest: ~/.config/kitty/theme.conf
     state: link
 

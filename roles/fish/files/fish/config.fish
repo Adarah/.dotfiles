@@ -1,79 +1,55 @@
 ########################################
+# Native fish options
+########################################
+# Enable vi mode
+fish_vi_key_bindings
+
+########################################
+# My aliases
+########################################
+alias vi 'nvim'
+alias gb 'git branch'
+alias gs 'git status'
+alias ga 'git add'
+alias gc 'git commit -S'
+alias gca 'git commit -S --amend'
+alias gp 'git push'
+alias gpf 'git push --force-with-lease --force-if-includes'
+alias gl 'git log'
+
+
+########################################
 # My alternative commands to break muscle memory
 ########################################
 function alternative
     # Prints bold red message
     set_color -ob red
     if [ (count $argv) -eq 2 ]
-        echo "Use $argv[1] ($argv[2]) instead." >&2
+        echo "Try using $argv[1] ($argv[2]) instead." >&2
     else
-        echo "Use $argv[1] instead." >&2
+        echo "Try using $argv[1] instead." >&2
     end
     set_color normal
 end
 
-function cat
-    alternative bat
-    command cat $argv
-end
-
-# zoxide actually uses cd under the hood, so this message shows up even when using zoxide
-# function cd
-    # alternative zoxide z
-    # command cd $argv
-# end
-
-function curl
-    alternative httpie http
-    command curl $argv
-end
-
-function df
-    alternative duf
-    command df $argv
-end
-
-function du
-    alternative dust
-    command du $argv
-end
-
-function find
-    alternative fd
-    command find $argv
-end
-
-function grep
-    alternative ripgrep rg
-    command grep $argv
-end
-
-function htop
-    alternative bottom btm
-    command htop $argv
-end
-
-function ls
-    alternative exa
-    command ls $argv
-end
-
-function ps
-    alternative procs
-    command ps $argv
-end
-
-function tree
-    alternative broot
-    command tree $argv
-end
+alias cat "alternative bat; command cat"
+alias curl "alternative httpie http; command curl"
+alias df "alternative duf; command df"
+alias du "alternative dust; command du"
+alias find "alternative fd; command find"
+alias grep "alternative rg; command grep"
+alias htop "alternative bottom btm; command htop"
+alias ls "alternative exa; command ls"
+alias ps "alternative procs; command ps"
+alias tree "alternative broot br; command tree"
 
 
 ########################################
 # zoxide
-# sources: https://github.com/ajeetdsouza/zoxide#fish
+# source: https://github.com/ajeetdsouza/zoxide#fish
 ########################################
 zoxide init fish | source
+
 
 ########################################
 # Pyenv
@@ -82,11 +58,13 @@ zoxide init fish | source
 status is-login; and pyenv init --path | source
 pyenv init - | source
 
+
 ########################################
 # Poetry
 # source: https://python-poetry.org/docs/#installation
 ########################################
 set PATH $PATH ~/.poetry/bin
+
 
 ########################################
 # GPG Agent
@@ -99,8 +77,18 @@ gpgconf --launch gpg-agent
 set GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
+
 ########################################
 # Enable Snap packages in the fish shell
 ########################################
 set PATH /var/lib/snapd/snap/bin $PATH
 set XDG_DATA_DIRS /var/lib/snapd/desktop/:$XDG_DATA_DIRS
+
+########################################
+# nvm
+# source: https://github.com/edc/bass#nvm
+########################################
+set NVM_DIR "$HOME/.nvm"
+function nvm
+    bass source "$NVM_DIR/nvm.sh"  --no-use ';' nvm $argv
+end

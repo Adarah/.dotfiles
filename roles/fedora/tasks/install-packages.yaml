@@ -24,6 +24,7 @@
       - jq
       - kitty
       - kubectl
+      - neofetch
       - neovim
       - podman-docker
       - procs

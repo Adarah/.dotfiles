@@ -34,7 +34,6 @@ export EDITOR=$(which nvim)
 ########################################
 # My aliases
 ########################################
-alias sudo='echo Use doas instead'
 alias vi='nvim'
 alias gb='git branch'
 alias gs='git status'
@@ -83,3 +82,11 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 # Broot
 ########################################
 source /home/mag/.config/broot/launcher/bash/br
+
+
+########################################
+# nvm
+########################################
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -1,3 +1,0 @@
-handlers:
-  - name: Reload i3
-    command: i3-msg reload

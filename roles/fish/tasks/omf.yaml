@@ -1,0 +1,39 @@
+- name: Install Oh My Fish
+  shell:
+    cmd: fish < (curl -L https://get.oh-my.fish | psub) --noninteractive
+    creates: ~/.local/share/omf
+
+- name: Symlink omf bundle file
+  file:
+    src: "{{ role_path }}/files/omf/bundle"
+    dest: "$OMF_CONFIG/bundle"
+    state: link
+    force: true
+
+- name: Symlink omf config file
+  file:
+    src: "{{ role_path }}/files/omf/omf-config.fish"
+    dest: ~/.config/fish/conf.d/omf-config.fish
+    state: link
+
+- name: Install omf packages
+  shell:
+    cmd: omf install
+    executable: /usr/bin/fish
+  notify:
+    - Reload omf
+
+- name: Set bobthefish theme
+  block:
+    - name: Check if fish theme is bobthefish
+      lineinfile:
+        path: "$OMF_CONFIG/theme"
+        line: 'bobthefish'
+        state: present
+      check_mode: true
+      register: presence
+
+    - name: Set fish theme to bobthefish
+      shell:
+        cmd: omf theme bobthefish
+        executable: /usr/bin/fish

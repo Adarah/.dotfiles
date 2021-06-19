@@ -1,0 +1,4 @@
+- name: Reload omf
+  shell:
+    cmd: echo 'reloaded' && omf reload
+    executable: /usr/bin/fish

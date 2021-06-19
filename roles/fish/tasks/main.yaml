@@ -1,27 +1,2 @@
-- name: Symlink config.fish
-  become_user: mag
-  file:
-    src: "{{ role_path }}/files/config.fish"
-    dest: ~/.config/fish/config.fish
-    state: link
-
-- name: Symlink universal fish_variables
-  become_user: mag
-  file:
-    src: "{{ role_path }}/files/fish_variables"
-    dest: ~/.config/fish/fish_variables
-    state: link
-    force: true
-
-- name: Install Oh My Fish
-  become_user: mag
-  shell:
-    cmd: fish < (curl -L https://get.oh-my.fish | psub) --noninteractive
-    creates: ~/.local/share/omf
-#
-#- name: Install bobthefish theme
-#  shell: omf install bobthefish
-#
-#- name: Set fish theme to bobthefish
-#  shell: omf theme bobthefish
-#
+- include_tasks: fish.yaml
+- include_tasks: omf.yaml

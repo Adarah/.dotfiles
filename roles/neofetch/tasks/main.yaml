@@ -1,0 +1,7 @@
+- name: Symlink neofetch config.conf
+  become_user: mag
+  file:
+    src: "{{ role_path }}/files/config.conf"
+    dest: ~/.config/neofetch/config.conf
+    state: link
+    force: true

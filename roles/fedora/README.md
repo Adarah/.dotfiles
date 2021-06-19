@@ -21,6 +21,7 @@
 | i3-gaps (i3) | Window manager |
 | jq | sed but for JSON |
 | kitty | GPU accelerated terminal emulator |
+| neofetch | Eye-candy |
 | neovim (nvim) | Better vi |
 | podman-docker (docker) | Docker but by Red Hat |
 | procs | Better ps |
