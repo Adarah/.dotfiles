@@ -194,6 +194,15 @@ for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] floating enable, border none, move position 1450px 20px
 no_focus [class="plasmashell" window_type="notification"]
 
+
+# Default programs to specific workspaces
+assign [class="Firefox"] 1
+assign [class="^jetbrains.*"] 2
+assign [class="discord"] 3
+assign [class="zoom"] 5
+assign [class="Spotify"] move --no-auto-back-and-forth to workspace 10
+
+
 gaps inner 20
 # gaps outer current plus 5
 # gaps horizontal current plus 40
@@ -252,3 +261,7 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+
+
+bindsym $mod+Shift+s sticky toggle

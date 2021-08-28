@@ -8,14 +8,15 @@
 #      encrypt: sha512_crypt
 #      confirm: yes
   roles:
-    - neofetch
+    - kubeseal
+#    - neofetch
 #    - fish
 #    - kitty
 #    - nodejs
-#    - rust
+    - rust
 #    - python
-#    - name: fedora
-#      when: ansible_distribution == 'Fedora'
+    - name: fedora
+      when: ansible_distribution == 'Fedora'
 #    - snap
 #    - flatpak
 #    - git

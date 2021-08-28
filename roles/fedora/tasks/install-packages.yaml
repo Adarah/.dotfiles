@@ -9,6 +9,7 @@
       - bottom
       - discord
       - doas
+      - podman-compose
       - exa
       - fd-find
       - feh
@@ -33,3 +34,5 @@
       - tealdeer
       - terraform
       - zoxide
+      - https://zoom.us/client/latest/zoom_x86_64.rpm
+      - @virtualization

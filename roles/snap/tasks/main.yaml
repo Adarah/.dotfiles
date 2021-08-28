@@ -15,6 +15,7 @@
           - kontena-lens
           - slack
           - helm
+          - flutter
         classic: true
     - name: Install regular Snap packages
       community.general.snap:

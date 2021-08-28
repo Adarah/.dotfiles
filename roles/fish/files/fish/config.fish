@@ -7,6 +7,7 @@ fish_vi_key_bindings
 ########################################
 # My aliases
 ########################################
+alias k 'kubectl'
 alias vi 'nvim'
 alias gb 'git branch'
 alias gs 'git status'
@@ -81,8 +82,15 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 ########################################
 # Enable Snap packages in the fish shell
 ########################################
-set PATH /var/lib/snapd/snap/bin $PATH
+set PATH /var/lib/snapd/snap/bin /usr/sbin/ $PATH
 set XDG_DATA_DIRS /var/lib/snapd/desktop/:$XDG_DATA_DIRS
+
+
+########################################
+# Add Flatpak paths to XDG_DATA_DIR
+########################################
+set XDG_DATA_DIRS /var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
+
 
 ########################################
 # nvm
@@ -92,3 +100,4 @@ set NVM_DIR "$HOME/.nvm"
 function nvm
     bass source "$NVM_DIR/nvm.sh"  --no-use ';' nvm $argv
 end
+# nvm use node --silent
