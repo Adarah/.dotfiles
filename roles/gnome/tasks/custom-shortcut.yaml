@@ -1,0 +1,21 @@
+# Note the double quoting in the dconf values below: They are important!
+# Otherwise dconf complains about a "GVARIANT" format
+- name: "Set {{item.name}} shortcut"
+  block: 
+  - dconf:
+      key: "{{custom_keybindings_path}}/custom{{i}}/name"
+      value: "'{{item.name}}'"
+  - dconf:
+      key: "{{custom_keybindings_path}}/custom{{i}}/command"
+      value: "'{{item.command}}'"
+  - dconf:
+      key: "{{custom_keybindings_path}}/custom{{i}}/binding"
+      value: "'{{item.binding}}'"
+
+- name: "Enable custom shortcuts"
+  when: ansible_loop.last
+  dconf:
+    key: "{{custom_keybindings_path}}"
+    # This outputs something like ['path/custom0/', 'path/custom1/', 'path/custom2/']
+    # The trailing slash is important, otherwise gnome settings crashes
+    value: "[{% for i in range(ansible_loop.length) %}'{{custom_keybindings_path}}/custom{{i}}/'{{ '' if loop.last else ', ' }}{% endfor %}]"
