@@ -18,4 +18,9 @@
     key: "{{custom_keybindings_path}}"
     # This outputs something like ['path/custom0/', 'path/custom1/', 'path/custom2/']
     # The trailing slash is important, otherwise gnome settings crashes
-    value: "[{% for i in range(ansible_loop.length) %}'{{custom_keybindings_path}}/custom{{i}}/'{{ '' if loop.last else ', ' }}{% endfor %}]"
+    value: |
+      {% set paths = [] %}
+      {% for i in range(ansible_loop.length) %}
+        {{ paths.append(custom_keybindings_path + "/custom" ~ i + "/") }}
+      {% endfor %}
+      {{ paths | string }}
