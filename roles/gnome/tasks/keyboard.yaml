@@ -1,0 +1,4 @@
+- name: Set keyboard layouts
+  dconf:
+    key: /org/gnome/desktop/input-sources/sources
+    value: "[('xkb', 'us'), ('xkb', 'br'), ('ibus', 'anthy')]"
