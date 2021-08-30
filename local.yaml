@@ -6,29 +6,15 @@
       set_fact:
         ansible_distribution_variant: "{{ lookup('ini', 'VARIANT_ID file=/etc/os-release type=properties') }}"
   roles:
-#    - kubeseal
-#    - neofetch
-#    - fish
-#    - kitty
-#    - nodejs
-#    - rust
-#    - python
-#    - name: fedora
-#      when: ansible_distribution == 'Fedora'
-#    - snap
-    - flatpak
-#    - git
-#    - gnupg
-#    - i3wm
-#    - doas
-#    - name: arch-linux
-#      when: ansible_distribution == 'Arch Linux'
-#    - name: kde
-#      when: ansible_env['XDG_CURRENT_DESKTOP'] == 'KDE'
-    - bash
+    - name: fedora
+      when: ansible_distribution == 'Fedora' and ansible_distribution_variant != 'silverblue'
+    - name: silverblue
+      when: ansible_distribution == 'Fedora' and ansible_distribution_variant == 'silverblue'
     - name: gnome
       when: ansible_env['XDG_CURRENT_DESKTOP'] == 'GNOME'
-    - name: silverblue
-      when: ansible_distribution_variant == 'silverblue'
-#    - jetbrains-toolbox
-#    - users
+    - flatpak
+    - git
+    - gnupg
+    - doas
+    - bash
+    - kitty

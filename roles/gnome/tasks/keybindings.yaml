@@ -9,11 +9,8 @@
     include_tasks: custom-shortcut.yaml
     loop:
     - name: Launch terminal
-      command: gnome-terminal
+      command: kitty
       binding: <Primary><Alt>t
-    - name: Launch terminal2
-      command: gnome-terminal
-      binding: <Primary><Alt>g
     loop_control:
       index_var: i
       extended: true

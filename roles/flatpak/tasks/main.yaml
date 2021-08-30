@@ -6,11 +6,10 @@
 
 - name: Install Flatpak packages
   community.general.flatpak:
-    name: "{{ item }}"
-    state: present
-  loop:
+    name:
     - Boxes
     - us.zoom.Zoom
     - com.discordapp.Discord
     - com.valvesoftware.Steam
     - com.spotify.Client
+    state: present

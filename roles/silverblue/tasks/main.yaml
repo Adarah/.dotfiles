@@ -9,8 +9,18 @@
 
 - name: Install ostree packages
   community.general.rpm_ostree_pkg:
-    name: "{{ item }}"
-    state: present
-  loop:
+    name: 
+    - ansible
+    - bat
+      # - bottom
+    - exa
+    - fd-find
     - ffmpeg-libs
+    - git-delta
+    - kitty
     - neovim
+    - procs
+    - ripgrep
+    - tealdeer
+    - zoxide
+    state: present
