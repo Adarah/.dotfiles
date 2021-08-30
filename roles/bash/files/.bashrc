@@ -43,7 +43,6 @@ alias gca='git commit -S --amend'
 alias gp='git push'
 alias gpf='git push --force-with-lease --force-if-includes'
 alias gl='git log'
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 
 ########################################
@@ -51,19 +50,6 @@ alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir
 # sources: https://github.com/ajeetdsouza/zoxide#bash
 ########################################
 eval "$(zoxide init bash)"
-
-########################################
-# Pyenv
-# source: https://github.com/pyenv/pyenv
-########################################
-# setting to setup shims
-eval "$(pyenv init -)"
-
-########################################
-# Poetry
-# source: https://python-poetry.org/docs/#installation
-########################################
-export PATH="$PATH:~/.poetry/bin"
 
 
 ########################################
@@ -76,18 +62,3 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
-
-
-########################################
-# Broot
-########################################
-source /home/mag/.config/broot/launcher/bash/br
-
-
-########################################
-# nvm
-########################################
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "$HOME/.cargo/env"
