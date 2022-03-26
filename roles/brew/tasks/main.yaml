@@ -1,0 +1,7 @@
+- name: Install packages
+  homebrew: 
+    name:
+      - lua-language-server
+      - delta
+      - ripgrep
+      - zoxide

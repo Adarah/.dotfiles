@@ -1,20 +1,13 @@
 ---
 - hosts: localhost
   connection: local
-  pre_tasks:
-    - name: Get distro variant
-      set_fact:
-        ansible_distribution_variant: "{{ lookup('ini', 'VARIANT_ID file=/etc/os-release type=properties') }}"
   roles:
-    - name: fedora
-      when: ansible_distribution == 'Fedora' and ansible_distribution_variant != 'silverblue'
-    - name: silverblue
-      when: ansible_distribution == 'Fedora' and ansible_distribution_variant == 'silverblue'
-    - name: gnome
-      when: ansible_env['XDG_CURRENT_DESKTOP'] == 'GNOME'
-    - flatpak
+    - name: macOS
+      when: ansible_distribution == 'MacOSX'
+    # - name: brew
+      # when: ansible_distribution == 'MacOSX'
+    - name: zsh
+      when: ansible_distribution == 'MacOSX'
     - git
     - gnupg
-    - doas
-    - bash
-    - kitty
+    - neovim

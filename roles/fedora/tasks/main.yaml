@@ -1,2 +1,0 @@
-- include_tasks: add-repositories.yaml
-- include_tasks: install-packages.yaml

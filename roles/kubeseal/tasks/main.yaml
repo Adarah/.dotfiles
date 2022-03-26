@@ -1,7 +1,0 @@
-- name: Install kubeseal
-  become: true
-  shell:
-    cmd: |
-      curl -L https://github.com/bitnami-labs/sealed-secrets/releases/latest/download/kubeseal-linux-amd64 -o /tmp/kubeseal
-      install -m 755 /tmp/kubeseal /usr/local/bin/kubeseal
-    creates: /usr/local/bin/kubeseal

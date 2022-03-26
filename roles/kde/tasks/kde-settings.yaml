@@ -1,3 +1,0 @@
-- name: Set KRunner to Free Floating mode
-  become_user: mag
-  command: kwriteconfig5 --file ~/.config/krunnerrc --group General --key FreeFloating true

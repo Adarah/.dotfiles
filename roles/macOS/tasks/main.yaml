@@ -1,0 +1,19 @@
+- name: Create .config directory
+  file:
+    dest: ~/.config
+    state: directory
+      
+- name: Check for brew
+  stat:
+    path: /opt/homebrew/bin/brew
+  register: brew
+- name: Install brew
+  when: not brew.stat.exists
+  block:
+    - name: Download install script
+      uri:
+        url: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+        dest: /tmp/brew-install.sh
+    - name: Run install script
+      command: bash /tmp/brew-install.sh
+      

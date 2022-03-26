@@ -1,7 +1,0 @@
-- name: Symlink doas.conf
-  become: true
-  file:
-    src: "{{ role_path }}/files/doas.conf"
-    dest: /etc/doas.conf
-    state: link
-    force: true

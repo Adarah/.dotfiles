@@ -1,5 +1,4 @@
 - name: Symlink gpg-agent.conf
-  become_user: mag
   file:
     src: "{{ role_path }}/files/gpg-agent.conf"
     dest: ~/.gnupg/gpg-agent.conf
@@ -7,9 +6,16 @@
     force: true
 
 - name: Symlink sshcontrol
-  become_user: mag
   file:
     src: "{{ role_path }}/files/sshcontrol"
     dest: ~/.gnupg/sshcontrol
+    state: link
+    force: true
+      
+
+- name: Symlink ssh config
+  file:
+    src: "{{ role_path }}/files/ssh-config"
+    dest: ~/.ssh/config
     state: link
     force: true

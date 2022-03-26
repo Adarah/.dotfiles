@@ -1,0 +1,12 @@
+- name: Symlink nvim config directory
+  file:
+    src: "{{ role_path }}/files/nvim"
+    dest: ~/.config/nvim
+    state: link
+    force: true
+
+- name: Install packer
+  git:
+    repo: https://github.com/wbthomason/packer.nvim
+    depth: 1
+    dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim

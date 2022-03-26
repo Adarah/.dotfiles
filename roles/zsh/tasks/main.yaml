@@ -1,0 +1,13 @@
+- name: Symlink .zshrc
+  file:
+    src: "{{ role_path }}/files/.zshrc"
+    dest: ~/.zshrc
+    state: link
+    force: true
+
+- name: Symlink .zprofile
+  file:
+    src: "{{ role_path }}/files/.zprofile"
+    dest: ~/.zprofile
+    state: link
+    force: true

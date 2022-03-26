@@ -1,8 +1,0 @@
-- name: Symlink .bashrc
-  become_user: mag
-  file:
-    src: "{{ role_path }}/files/.bashrc"
-    dest: ~/.bashrc
-    state: link
-    force: true
-
