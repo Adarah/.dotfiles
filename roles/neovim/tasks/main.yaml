@@ -1,3 +1,8 @@
+- name: Create .config directory
+  file:
+    dest: ~/.config
+    state: directory
+
 - name: Symlink nvim config directory
   file:
     src: "{{ role_path }}/files/nvim"

@@ -2,6 +2,9 @@
   homebrew: 
     name:
       - lua-language-server
-      - delta
+      - gnupg
+      - git-delta
       - ripgrep
       - zoxide
+      - bazelisk
+      - asdf

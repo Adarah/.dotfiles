@@ -4,10 +4,15 @@
   roles:
     - name: macOS
       when: ansible_distribution == 'MacOSX'
-    # - name: brew
-      # when: ansible_distribution == 'MacOSX'
+    - name: brew
+      when: ansible_distribution == 'MacOSX'
     - name: zsh
       when: ansible_distribution == 'MacOSX'
     - git
     - gnupg
     - neovim
+    - role: cimon-io.asdf
+      asdf_plugins:
+        - name: nodejs
+          versions: lts
+          global: lts

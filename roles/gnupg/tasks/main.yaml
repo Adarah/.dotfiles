@@ -1,3 +1,8 @@
+- name: Create .gnupg directory
+  file:
+    dest: ~/.gnupg
+    state: directory
+
 - name: Symlink gpg-agent.conf
   file:
     src: "{{ role_path }}/files/gpg-agent.conf"
@@ -12,6 +17,10 @@
     state: link
     force: true
       
+- name: Create .ssh directory
+  file:
+    dest: ~/.ssh
+    state: directory
 
 - name: Symlink ssh config
   file:
