@@ -9,6 +9,9 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
 
+  -- Easy comment boxes
+  use("LudoPinelli/comment-box.nvim")
+
   if not vscode then
   	-- Cosmetics
 	use { 'rebelot/kanagawa.nvim', config = function() require('kanagawa') end }

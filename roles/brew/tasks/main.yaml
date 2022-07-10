@@ -1,3 +1,6 @@
+- name: Install taps
+  homebrew_tap:
+    - bazelbuild/tap
 - name: Install packages
   homebrew: 
     name:
@@ -7,4 +10,6 @@
       - ripgrep
       - zoxide
       - bazelisk
+      - buildifier
       - asdf
+      - bazelbuild/tap/ibazel
